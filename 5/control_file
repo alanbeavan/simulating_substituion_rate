@@ -1,0 +1,13 @@
+0       * 0: paml format (mc.paml); 1: paup format (mc.nex)
+-1       * random number seed (odd number)
+10 3000 1       * <# seqs> <# nucleotide sites> <# replicates>
+-1      * <tree length, use -1 if tree has absolute branch lengths>
+
+(((((G:0.0433668,C:0.0276035):0.0151938,B:0.0470221):0.0152743,J:0.0447883):0.0240434,(((D:0.0143222,I:0.011568):0.0029355,F:0.0112509):0.0426479,E:0.0873639):0.0092743):0.0043727,(A:0.0194266,H:0.022805):0.0640688); *tree
+
+0       * model: 0:JC69, 1:K80, 2:F81, 3:F84, 4:HKY85, 5:T92, 6:TN93, 7:GTR
+1       * kappa or rate parameters - not sure what to put for GTR or TN93
+1 40     * <alpha> <#categories for discrete gamma> - alpha = 0 mains no rate variation (all sites have same underlying rate)
+
+0.25 0.25 0.25 0.25 * base frequecies
+   T    C    A    G
