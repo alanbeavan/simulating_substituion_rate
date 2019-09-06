@@ -35,7 +35,7 @@ def main():
         if flag:
             out.write(str(len(seqs)) + "  " + str(len(value)) + "\n")
             flag = 0
-        out.write(key + "\t" + value + "\n")
+        out.write(key + "  " + value + "\n")
     out.close()
 
 

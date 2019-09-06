@@ -10,9 +10,10 @@ import variation
 def main():
     """Modify the 70 gene trees using simulated rates."""
     base_tree = mod.get_file_data("../timetree.nwk")[0]
+    params = variation.Settings()
     i = 0
     while i < 70:
-        rate = variation.get_rate(10, 10)
+        rate = variation.get_rate(params.gene_alpha, params.gene_beta)
         new_tree = variation.modified_tree(base_tree, rate)
         out = open("treefiles.nwk", "a+")
         out.write(new_tree + "\n")
