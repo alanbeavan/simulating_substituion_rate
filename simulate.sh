@@ -4,8 +4,6 @@ rm Seeds_used
 touch Seeds_used
 
 rate_bins=`head -n1 nbins.txt`
-echo $rate_bins
-
 
 for i in {1..70}
 do
