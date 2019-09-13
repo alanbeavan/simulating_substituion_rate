@@ -11,7 +11,7 @@ do
     alpha=`head -n $i alphas.txt | tail -n 1`
 
     #modify evolver control file with the alpha value
-    gsed -i "s/^.*\(\* <alpha>.*$\)/${alpha} 4\t\1/g" control_file
+    sed -i "s/^.*\(\* <alpha>.*$\)/${alpha} 4\t\1/g" control_file
 
     for j in $(seq 1 $rate_bins)
     do
@@ -20,13 +20,13 @@ do
         echo $tree
 
         #modify evolver control file with the tree
-        gsed -i "s/^.*\(\*tree\)/${tree} \1/g" control_file
+        sed -i "s/^.*\(\*tree\)/${tree} \1/g" control_file
         
         #simulate sequences
         evolver 5 control_file
         
         #remove blank lines from sequences
-        gsed -i '/^$/d' mc.paml 
+        sed -i '/^$/d' mc.paml 
 
         #rename and move to directory
         mv mc.paml sequences/${i}_${j}.phy
@@ -44,9 +44,9 @@ done
 rm evolver.out SeedUsed ancestral.txt
 for i in {1..70}
 do
-    python3 ../concatinate_gene.py sequences/${i} sequences/${i}.phy
+    python3 ../../scripts/concatinate_gene.py sequences/${i} sequences/${i}.phy
     mkdir sequences/${i}_partitions
     mv sequences/${i}_[0-9]* sequences/${i}_partitions
 done
 
-python3 ../concatinate_alignments.py sequences concatinated_alignment.phy
+python3 ../../scripts/concatinate_alignments.py sequences concatinated_alignment.phy
